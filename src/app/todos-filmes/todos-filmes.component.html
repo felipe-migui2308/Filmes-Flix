@@ -1,0 +1,22 @@
+
+<div class="ion-padding">
+  <ion-row>
+    <!-- Exibir filmes -->
+    <ng-container *ngFor="let movie of movies">
+      <ion-col size="4">
+        <ion-button size="small" fill="clear" [routerLink]="['/det-movies', movie.id]">
+          <ion-img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}" style="max-width: 150px; max-height: 250px;"></ion-img>
+        </ion-button>
+      </ion-col>
+    </ng-container>
+
+    <!-- Exibir séries -->
+    <ng-container *ngFor="let serie of series">
+      <ion-col size="4">
+        <ion-button size="small" fill="clear" [routerLink]="['/det-series', serie.id]">
+          <ion-img [src]="'https://image.tmdb.org/t/p/w500' + serie.poster_path" alt="{{ serie.title }}" style="max-width: 150px; max-height: 250px;"></ion-img>
+        </ion-button>
+      </ion-col>
+    </ng-container>
+  </ion-row>
+</div>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ serieDetails?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="isLoading">
+    <ion-row style="height: 100vh; justify-content: center; align-items: center;">
+      <ion-col size="auto">
+        <ion-spinner color="primary" style="width: 400px; height: 64px;"></ion-spinner>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card *ngIf="!isLoading">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + serieDetails?.poster_path" alt="Capa da Série" style="width: 200px;">
+    <ion-card-header>
+      {{ serieDetails?.name }}
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Sinopse:</strong> {{ serieDetails?.overview }}</p>
+      <p><strong>Avaliação:</strong> {{ serieDetails?.vote_average }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

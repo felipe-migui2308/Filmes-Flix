@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button> <!-- Botão de voltar -->
+      </ion-buttons>
+      <ion-title>{{ movieDetails?.title }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-grid *ngIf="isLoading">
+      <ion-row style="height: 100vh; justify-content: center; align-items: center;">
+        <ion-col size="auto">
+          <ion-spinner color="primary" style="width: 400px; height: 64px;"></ion-spinner>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-card *ngIf="!isLoading">
+      <img [src]="'https://image.tmdb.org/t/p/w500' + movieDetails?.poster_path" alt="Capa do Filme" style="width: 200px;">
+      <ion-card-header>
+        {{ movieDetails?.title }}
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Sinopse:</strong> {{ movieDetails?.overview }}</p>
+        <p><strong>Nota:</strong> {{ movieDetails?.vote_average }}</p> <!-- Exibindo a nota de avaliação -->
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
